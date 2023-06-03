@@ -1,0 +1,33 @@
+﻿@model 
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    @using (Html.BeginForm("GetAll", "SuperDigito", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="container">
+            <div class="row align-items-start">
+
+                <div class="col">
+                    <div class="form-group-sm">
+                        @Html.TextBoxFor(model => model.Numero, new { @class = "form-control", @id = "txtNombre", @onkeypress = "SoloLetras(event,'lblNombre','txtNombre)" })
+                        @Html.ValidationMessageFor(model => model.Numero, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group-sm">
+                        <input type="submit" value="Calcular" class="btn btn-success" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group-sm">
+                        @Html.TextBoxFor(model => model.Resultado, new { @class = "form-control", @id = "txtApellidoPaterno", @onkeypress = "SoloLetras(event,'lblNombre','txtApellidoPaterno)" })
+                        @Html.ValidationMessageFor(model => model.Resultado, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
